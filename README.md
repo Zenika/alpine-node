@@ -1,5 +1,13 @@
 # alpine-node
 Minimal Node/io.js Docker Images built on Alpine Linux
+Size: 76 MB (All Layers: 236.8 MB)
+
+Layers:
+- alpine:3.4 5 MB
+- g++ 147 MB (needed for node-sass)
+- git 17 MB (needed to checkout some repo outside npm)
+- nodejs 27 MB
+- python 38 MB (needed for node-sass)
 
 # Node version
 
