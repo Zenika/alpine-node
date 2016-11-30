@@ -1,7 +1,5 @@
-FROM alpine:3.4
+FROM node:7.2-alpine
 
-RUN apk add --update --no-cache make gcc g++ python nodejs git && \
-  rm -rf /tmp/* /var/cache/apk/*
+RUN apk add --no-cache git
 
-RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
