@@ -7,6 +7,9 @@ RUN chown -R foo /home/foo
 RUN chown -R foo /usr/src/app
 
 USER foo
+
+ONBUILD COPY yarn.lock package.json /usr/src/app/
+ONBUILD RUN yarn --pure-lockfile
 ONBUILD COPY . /usr/src/app
 
 CMD [ "yarn", "start" ]
