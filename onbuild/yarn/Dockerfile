@@ -2,8 +2,11 @@ FROM zenika/alpine-node
 
 RUN npm install -g yarn
 
-ONBUILD COPY package.json /usr/src/app/
-ONBUILD RUN yarn 
+RUN adduser -D foo
+RUN chown -R foo /home/foo
+RUN chown -R foo /usr/src/app
+
+USER foo
 ONBUILD COPY . /usr/src/app
 
 CMD [ "yarn", "start" ]
