@@ -11,7 +11,7 @@ RUN chown -R foo /usr/src/app
 USER foo
 # end hack https://github.com/yarnpkg/yarn/issues/918
 
-ONBUILD COPY yarn.lock package.json /usr/src/app/
+ONBUILD COPY package.json /usr/src/app/
 ONBUILD RUN yarn --pure-lockfile
 ONBUILD COPY . /usr/src/app
 
