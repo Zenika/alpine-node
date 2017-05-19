@@ -13,14 +13,20 @@ Layers:
 
 ```
 docker run --rm zenika/alpine-node node -v
-v6.2.0
+v7.10.0
 ```
 
 # NPM version
 
 ```
 docker run --rm zenika/alpine-node npm -v
-3.8.9
+4.2.0
+```
+
+# Yarn version
+```
+docker run --rm zenika/alpine-node yarn --version
+0.23.4
 ```
 
 # GIT version
