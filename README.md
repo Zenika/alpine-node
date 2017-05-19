@@ -23,6 +23,12 @@ docker run --rm zenika/alpine-node npm -v
 4.2.0
 ```
 
+# Yarn version
+```
+docker run --rm zenika/alpine-node yarn --version
+0.23.4
+```
+
 # GIT version
 
 ```
