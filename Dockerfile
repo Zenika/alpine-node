@@ -1,4 +1,4 @@
-FROM node:8-alpine
+FROM node:alpine
 
 RUN apk add --update --no-cache make gcc g++ python git && \
   rm -rf /tmp/* /var/cache/apk/*
