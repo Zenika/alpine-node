@@ -1,44 +1,84 @@
+# Supported tags and respective `Dockerfile` links
+
+ * `9`, `latest` [(Dockerfile)](https://github.com/Zenika/alpine-node/blob/master/Dockerfile)
+
+ * `onbuild` [(onbuild/Dockerfile)](https://github.com/Zenika/alpine-node/blob/master/onbuild/Dockerfile)
+
+ * `onbuild-yarn` [(onbuild/yarn/Dockerfile)](https://github.com/Zenika/alpine-node/blob/master/onbuild/yarn/Dockerfile)
+
 # alpine-node
-Minimal Node/io.js Docker Images built on Alpine Linux
-Size: 76 MB (All Layers: 236.8 MB)
+Minimal Node Docker Images built on Alpine Linux
+Based on `node:alpine`
 
-Layers:
-- alpine:3.4 5 MB
-- g++ 147 MB (needed for node-sass)
-- git 17 MB (needed to checkout some repo outside npm)
-- nodejs 27 MB
-- python 38 MB (needed for node-sass)
+# What is Node
 
-# Node version
+Node.js is a software platform for scalable server-side and networking applications. Node.js applications are written in JavaScript and can be run within the Node.js runtime on Mac OS X, Windows, and Linux without changes.
 
-```
-docker run --rm zenika/alpine-node node -v
-v7.10.0
-```
+Node.js applications are designed to maximize throughput and efficiency, using non-blocking I/O and asynchronous events. Node.js applications run single-threaded, although Node.js uses multiple threads for file and network events. Node.js is commonly used for real-time applications due to its asynchronous nature.
 
-# NPM version
+Node.js internally uses the Google V8 JavaScript engine to execute code; a large percentage of the basic modules are written in JavaScript. Node.js contains a built-in, asynchronous I/O library for file, socket, and HTTP communication. The HTTP and socket support allows Node.js to act as a web server without additional software such as Apache.
 
-```
-docker run --rm zenika/alpine-node npm -v
-4.2.0
-```
+> [wikipedia.org/wiki/Node.js](https://en.wikipedia.org/wiki/Node.js)
 
-# Yarn version
-```
-docker run --rm zenika/alpine-node yarn --version
-0.23.4
-```
+![logo](https://raw.githubusercontent.com/docker-library/docs/01c12653951b2fe592c1f93a13b4e289ada0e3a1/node/logo.png)
 
-# GIT version
+# Why this image
 
-```
-docker run --rm zenika/alpine-node git --version
-git version 2.8.3
-```
+We often need to support `node-sass` or GIT Urls as NPM dependencies.
+We created this image to get a fully node-ready image.
 
-# Python version
+# How to use this image
+
+See [How To Use This Image](https://github.com/nodejs/docker-node/blob/master/README.md#how-to-use-this-image) on GitHub for up-to-date documentation.
+
+# Reference
+
+ * Node website : https://nodejs.org
+
+ * Where to file issues : https://github.com/Zenika/alpine-node/issues
+
+ * Maintained by : https://www.zenika.com
+
+# Versions (in latest)
+
+## Alpine version
 
 ```
-docker run --rm zenika/alpine-node python -V
-Python 2.7.12
+docker container run --rm zenika/alpine-node cat /etc/alpine-release
+3.6.2
+```
+
+## Node version
+
+```
+docker container run --rm zenika/alpine-node node -v
+v9.3.0
+```
+
+## NPM version
+
+```
+docker container run --rm zenika/alpine-node npm -v
+5.5.1
+```
+
+## Yarn version
+
+```
+docker container run --rm zenika/alpine-node yarn --version
+1.3.2
+```
+
+## GIT version
+
+```
+docker container run --rm zenika/alpine-node git --version
+git version 2.13.5
+```
+
+## Python version
+
+```
+docker container run --rm zenika/alpine-node python -V
+Python 2.7.13
 ```
