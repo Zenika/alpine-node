@@ -2,6 +2,8 @@
 
  * `9`, `latest` [(Dockerfile)](https://github.com/Zenika/alpine-node/blob/master/Dockerfile)
 
+* `full-icu`, `icu`, `i18n` [(full-icu/Dockerfile)](https://github.com/Zenika/alpine-node/blob/master/full-icu/Dockerfile)
+
  * `onbuild` [(onbuild/Dockerfile)](https://github.com/Zenika/alpine-node/blob/master/onbuild/Dockerfile)
 
  * `onbuild-yarn` [(onbuild/yarn/Dockerfile)](https://github.com/Zenika/alpine-node/blob/master/onbuild/yarn/Dockerfile)
@@ -26,6 +28,17 @@ Node.js internally uses the Google V8 JavaScript engine to execute code; a large
 
 We often need to support `node-sass` or GIT Urls as NPM dependencies.
 We created this image to get a fully node-ready image.
+
+# Why the "full-icu" image
+
+For i18n, we need to embed `full-icu`. See #9 for more information.
+
+```
+docker container run -it --rm zenika/alpine-node:i18n sh
+node
+Number(2.3).toLocaleString('fr')
+'2,3'
+```
 
 # How to use this image
 
