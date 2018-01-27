@@ -34,10 +34,8 @@ We created this image to get a fully node-ready image.
 For i18n, we need to embed `full-icu`. See #9 for more information.
 
 ```
-docker container run -it --rm zenika/alpine-node:i18n sh
-node
-Number(2.3).toLocaleString('fr')
-'2,3'
+docker container run -it --rm zenika/alpine-node:i18n node -e "console.log(Number(2.3).toLocaleString('fr'))" 
+2,3
 ```
 
 # How to use this image
