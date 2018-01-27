@@ -52,14 +52,14 @@ docker container run --rm zenika/alpine-node cat /etc/alpine-release
 
 ```
 docker container run --rm zenika/alpine-node node -v
-v9.3.0
+v9.4.0
 ```
 
 ## NPM version
 
 ```
 docker container run --rm zenika/alpine-node npm -v
-5.5.1
+5.6.0
 ```
 
 ## Yarn version
