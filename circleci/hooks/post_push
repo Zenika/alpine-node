@@ -1,0 +1,10 @@
+#!/bin/bash
+set -e
+
+tagStart=$(expr index "$IMAGE_NAME" :)
+repoName=${IMAGE_NAME:0:tagStart-1}
+
+for tag in {full-icu,icu,i18n}; do
+    docker tag $IMAGE_NAME ${repoName}:circleci-${tag}
+    docker push ${repoName}:circleci-${tag}
+done
