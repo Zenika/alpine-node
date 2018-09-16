@@ -1,15 +1,22 @@
+[![Docker Build Status](https://img.shields.io/docker/build/zenika/alpine-node.svg)](https://hub.docker.com/r/zenika/alpine-node/) [![Docker Pulls](https://img.shields.io/docker/pulls/zenika/alpine-node.svg)](https://hub.docker.com/r/zenika/alpine-node/)
+
 # Supported tags and respective `Dockerfile` links
 
- * `9`, `latest` [(Dockerfile)](https://github.com/Zenika/alpine-node/blob/master/Dockerfile)
-
-* `full-icu`, `icu`, `i18n` [(full-icu/Dockerfile)](https://github.com/Zenika/alpine-node/blob/master/full-icu/Dockerfile)
+ * `9`
+ 
+ * `10`, `latest` [(Dockerfile)](https://github.com/Zenika/alpine-node/blob/master/Dockerfile)
 
  * `onbuild` [(onbuild/Dockerfile)](https://github.com/Zenika/alpine-node/blob/master/onbuild/Dockerfile)
 
  * `onbuild-yarn` [(onbuild/yarn/Dockerfile)](https://github.com/Zenika/alpine-node/blob/master/onbuild/yarn/Dockerfile)
 
+ * `i18n`, `icu`, `full-icu` [(full-icu/Dockerfile)](https://github.com/Zenika/alpine-node/blob/master/full-icu/Dockerfile)
+
+ * `circleci-i18n`, `circleci-icu`, `circleci-full-icu` [(full-icu/Dockerfile)](https://github.com/Zenika/alpine-node/blob/master/circleci/Dockerfile)
+
 # alpine-node
 Minimal Node Docker Images built on Alpine Linux
+
 Based on `node:alpine`
 
 # What is Node
@@ -29,7 +36,7 @@ Node.js internally uses the Google V8 JavaScript engine to execute code; a large
 We often need to support `node-sass` or GIT Urls as NPM dependencies.
 We created this image to get a fully node-ready image.
 
-# Why the "full-icu" image
+# Why the "i18n" image
 
 For i18n, we need to embed `full-icu`. See #9 for more information.
 
@@ -37,6 +44,10 @@ For i18n, we need to embed `full-icu`. See #9 for more information.
 docker container run -it --rm zenika/alpine-node:i18n node -p "Number(2.3).toLocaleString('fr')" 
 2,3
 ```
+
+# Why the "circleci" image
+
+In order to follow circleci custom images and get i18n on it, we create a tag `circleci-full-icu`. See #12 and (this)[https://circleci.com/docs/2.0/custom-images/] for more information. Be careful, it's not based on a `alpine` image.
 
 # How to use this image
 
@@ -56,40 +67,40 @@ See [How To Use This Image](https://github.com/nodejs/docker-node/blob/master/RE
 
 ```
 docker container run --rm zenika/alpine-node cat /etc/alpine-release
-3.6.2
+3.8.1
 ```
 
 ## Node version
 
 ```
 docker container run --rm zenika/alpine-node node -v
-v9.4.0
+v10.10.0
 ```
 
 ## NPM version
 
 ```
 docker container run --rm zenika/alpine-node npm -v
-5.6.0
+6.4.1
 ```
 
 ## Yarn version
 
 ```
 docker container run --rm zenika/alpine-node yarn --version
-1.3.2
+1.9.4
 ```
 
 ## GIT version
 
 ```
 docker container run --rm zenika/alpine-node git --version
-git version 2.13.5
+git version 2.18.0
 ```
 
 ## Python version
 
 ```
 docker container run --rm zenika/alpine-node python -V
-Python 2.7.13
+Python 2.7.15
 ```
